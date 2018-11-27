@@ -1,31 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import Body, { Body2 } from './components/Body';
+
 import './App.css';
-
-const Body = props => {
-  return (
-    <div>
-      <div>{props.title}</div>
-      <div>{props.text}</div>
-      <div>{props.myFunc(1, 2)}</div>
-    </div>
-  );
-};
-
-class Header extends Component {
-  render() {
-    return (
-      <div>
-        <img src={logo} className="App-logo" alt="logo" />
-        <div>{this.props.title}</div>
-        <div>{JSON.stringify(this.props.Obj)}</div>
-        <div>{this.props.Obj.a}</div>
-        <div>{this.props.myArr[0]}</div>
-        <div>{this.props.myFunc(1, 9)}</div>
-      </div>
-    );
-  }
-}
+import Header from './components/Header';
 
 class App extends Component {
   add(a, b) {
@@ -53,6 +31,7 @@ class App extends Component {
           Learn React
         </a>
         <Body title="Shake your body" text="you are great" myFunc={this.add} />
+        <Body2 />
       </div>
     );
   }

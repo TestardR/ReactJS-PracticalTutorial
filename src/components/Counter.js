@@ -10,19 +10,22 @@ export default class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: props.initialCount
+      count: 0
     };
   }
-
-  // you have ton bind "this" to using regular functions
-  //   handleButtonClick() {
-  //     console.log('button clicked');
-  //   }
 
   handleIncrease = () => {
     this.setState({
       count: this.state.count + 1
     });
+  };
+
+  componentWillUnmount = () => {
+    console.log('unmounting');
+  };
+
+  componentDidMount = () => {
+    console.log('mounting');
   };
 
   handleDecrease = () => {
@@ -32,7 +35,6 @@ export default class Counter extends Component {
   };
 
   render() {
-    console.log('render function called');
     return (
       <div>
         <div>count: {this.state.count}</div>

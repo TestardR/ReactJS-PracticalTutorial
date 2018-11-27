@@ -21,43 +21,26 @@ class App extends Component {
     //   return <div>display nothing</div>;
     // }
 
-    const buttonText = this.state.visible ? 'hide' : 'show';
-    const slider = this.state.visible ? (
-      <ImageSlider />
-    ) : (
-      <div>
-        <Counter initialCount={15} />
-      </div>
-    );
+    // const buttonText = this.state.visible ? 'hide' : 'show';
+    // const slider = this.state.visible ? (
+    //   <ImageSlider />
+    // ) : (
+    //   <div>
+    //     <Counter initialCount={15} />
+    //   </div>
+    // );
 
     return (
       <div className="App">
-        <Header
-          title="Hello from App"
-          num={5}
-          Obj={{
-            a: 5,
-            b: 6
-          }}
-          myArr={[1, 2, 3]}
-          myFunc={this.add}
-        />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Body title="Shake your body" text="you are great" myFunc={this.add} />
-        {slider}
+        <div className={this.state.visible ? 'visible' : 'hidden'}>
+          <Counter />
+        </div>
         <button
           onClick={() => {
             this.setState({ visible: !this.state.visible });
           }}
         >
-          {buttonText}
+          toggle counter
         </button>
       </div>
     );

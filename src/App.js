@@ -4,6 +4,7 @@ import Body, { Body2 } from './components/Body';
 
 import './App.css';
 import Header from './components/Header';
+import Counter from './components/Counter';
 
 class App extends Component {
   add(a, b) {
@@ -31,7 +32,8 @@ class App extends Component {
           Learn React
         </a>
         <Body title="Shake your body" text="you are great" myFunc={this.add} />
-        <Body2 />
+        <Counter initialCount={100} />
+        <Counter initialCount={10} />
       </div>
     );
   }

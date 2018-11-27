@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import Counter from './components/Counter';
 import ImageSlider from './components/ImageSlider';
+import MyForm from './components/MyForm';
 
 class App extends Component {
   state = {
@@ -32,16 +33,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className={this.state.visible ? 'visible' : 'hidden'}>
-          <Counter />
-        </div>
-        <button
-          onClick={() => {
-            this.setState({ visible: !this.state.visible });
-          }}
-        >
-          toggle counter
-        </button>
+        <MyForm />
       </div>
     );
   }

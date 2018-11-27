@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import FetchRandomUser from './components/FetchRandomUser';
+import FetchRandomUsers from './components/FetchRandomUsers';
 
 class App extends Component {
   state = {
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <FetchRandomUser />
+        <FetchRandomUsers />
       </div>
     );
   }

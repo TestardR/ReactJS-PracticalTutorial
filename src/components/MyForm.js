@@ -9,48 +9,56 @@ export default class MyForm extends Component {
   };
 
   handleChange = event => {
-    this.setState({ name: event.target.value });
+    const isCheckbox = event.target.type === 'checkbox';
+    this.setState({
+      [event.target.name]: isCheckbox
+        ? event.target.checked
+        : event.target.value
+    });
   };
 
-  handleChangeFavoritePet = event => {
-    this.setState({ favoritePet: event.target.value });
-  };
-
-  handleCheckBox = event => {
-    this.setState({ rememberMe: event.target.checked });
-  };
-
-  handleOptions = event => {
-    this.setState({ options: event.target.value });
-  };
-
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault();
     console.log(this.state);
   };
 
   render() {
     return (
-      <div>
-        <input value={this.state.name} onChange={this.handleChange} />
-        <textarea
-          value={this.state.favoritePet}
-          onChange={this.handleChangeFavoritePet}
-        />
-        <input
-          type="checkbox"
-          checked={this.state.rememberMe}
-          onChange={this.handleCheckBox}
-        />
+      <form onSubmit={this.handleSubmit}>
         <div>
-          <select value={this.state.options} onChange={this.handleOptions}>
-            <option>Mr.</option>
-            <option>Miss.</option>
-            <option>Ms.</option>
-            <option>Mrs.</option>
-          </select>
+          <input
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+          <textarea
+            name="favoritePet"
+            value={this.state.favoritePet}
+            onChange={this.handleChange}
+          />
+          <input
+            name="rememberMe"
+            type="checkbox"
+            checked={this.state.rememberMe}
+            onChange={this.handleChange}
+          />
+          <div>
+            <select
+              name="options"
+              value={this.state.options}
+              onChange={this.handleChange}
+            >
+              <option>Mr.</option>
+              <option>Miss.</option>
+              <option>Ms.</option>
+              <option>Mrs.</option>
+            </select>
+          </div>
+          <button name="submit" type="submit">
+            submit
+          </button>
         </div>
-        <button onClick={this.handleSubmit}>submit</button>
-      </div>
+      </form>
     );
   }
 }
